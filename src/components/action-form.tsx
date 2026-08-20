@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useActionState, useEffect, type ReactNode } from "react";
+import { useActionState, useEffect, useId, type ReactNode } from "react";
 import { initialActionState, type ActionResult } from "@/lib/action-result";
 import { Alert } from "@/components/ui/alert";
 
@@ -28,6 +28,7 @@ export function ActionForm({
 }) {
   const [state, formAction, pending] = useActionState(action, initialActionState);
   const router = useRouter();
+  const formId = useId();
 
   useEffect(() => {
     if (state.ok && state.redirectTo) {
