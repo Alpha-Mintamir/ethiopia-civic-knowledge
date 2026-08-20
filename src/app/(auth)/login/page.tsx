@@ -16,15 +16,30 @@ export default async function LoginPage({
   const { next } = await searchParams;
 
   return (
-    <div className="mx-auto max-w-sm px-4 py-12">
-      <h1 className="text-2xl font-bold text-stone-900">Sign in</h1>
-      <p className="mt-1 mb-6 text-sm text-stone-600">
-        Sign in to contribute experiences, suggest edits and share documents.
+    <div className="mx-auto max-w-md px-4 py-16">
+      <h1 
+        className="font-display text-3xl font-semibold tracking-tight"
+        style={{ color: 'var(--color-fg)' }}
+      >
+        Sign in
+      </h1>
+      <p className="mt-2 mb-8 text-sm leading-relaxed" style={{ color: 'var(--color-fg-muted)' }}>
+        Sign in to contribute, suggest edits, and share documents.
       </p>
       <LoginForm next={next} />
-      <p className="mt-6 text-sm text-stone-600">
+      <p className="mt-6 text-sm" style={{ color: 'var(--color-fg-muted)' }}>
         New here?{" "}
-        <Link href="/register" className="font-medium text-primary-700 hover:underline">
+        <Link 
+          href="/register" 
+          className="font-medium transition-colors"
+          style={{ color: 'var(--color-primary-600)' }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.textDecoration = 'underline';
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.textDecoration = 'none';
+          }}
+        >
           Create an account
         </Link>
       </p>

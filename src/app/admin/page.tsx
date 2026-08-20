@@ -48,51 +48,126 @@ export default async function AdminDashboardPage() {
   ];
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8">
+    <div className="mx-auto max-w-6xl px-4 py-10">
       <Breadcrumbs items={[{ label: "Admin" }]} />
-      <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
-        <h1 className="text-2xl font-bold text-stone-900">Admin dashboard</h1>
-        <nav aria-label="Admin sections" className="flex flex-wrap gap-2 text-sm">
+      <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
+        <h1 
+          className="font-display text-3xl font-semibold tracking-tight"
+          style={{ color: 'var(--color-fg)' }}
+        >
+          Admin dashboard
+        </h1>
+        <nav aria-label="Admin sections" className="flex flex-wrap gap-2.5 text-sm">
           <Link
             href="/moderation"
-            className="rounded-md border border-stone-300 bg-white px-3 py-1.5 font-medium text-stone-700 hover:bg-stone-100"
+            className="font-medium transition-all"
+            style={{
+              padding: '8px 16px',
+              borderRadius: 'var(--radius-sm)',
+              border: '1px solid var(--color-border)',
+              backgroundColor: 'var(--color-paper-elevated)',
+              color: 'var(--color-fg)',
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--color-paper-muted)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--color-paper-elevated)';
+            }}
           >
-            Moderation queue
+            Moderation
           </Link>
           <Link
             href="/admin/users"
-            className="rounded-md border border-stone-300 bg-white px-3 py-1.5 font-medium text-stone-700 hover:bg-stone-100"
+            className="font-medium transition-all"
+            style={{
+              padding: '8px 16px',
+              borderRadius: 'var(--radius-sm)',
+              border: '1px solid var(--color-border)',
+              backgroundColor: 'var(--color-paper-elevated)',
+              color: 'var(--color-fg)',
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--color-paper-muted)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--color-paper-elevated)';
+            }}
           >
-            Users &amp; roles
+            Users
           </Link>
           <Link
             href="/admin/sources"
-            className="rounded-md border border-stone-300 bg-white px-3 py-1.5 font-medium text-stone-700 hover:bg-stone-100"
+            className="font-medium transition-all"
+            style={{
+              padding: '8px 16px',
+              borderRadius: 'var(--radius-sm)',
+              border: '1px solid var(--color-border)',
+              backgroundColor: 'var(--color-paper-elevated)',
+              color: 'var(--color-fg)',
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--color-paper-muted)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--color-paper-elevated)';
+            }}
           >
-            Source registry
+            Sources
           </Link>
         </nav>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
         {metricCards.map((metric) => {
           const body = (
             <>
-              <metric.icon aria-hidden="true" className="size-4 text-stone-400" />
-              <p className="mt-2 text-2xl font-bold text-stone-900">{metric.value}</p>
-              <p className="text-xs text-stone-500">{metric.label}</p>
+              <metric.icon 
+                aria-hidden="true" 
+                className="size-4" 
+                style={{ color: 'var(--color-fg-subtle)' }}
+              />
+              <p 
+                className="mt-3 font-display text-2xl font-semibold"
+                style={{ color: 'var(--color-fg)' }}
+              >
+                {metric.value}
+              </p>
+              <p className="mt-0.5 text-xs" style={{ color: 'var(--color-fg-muted)' }}>
+                {metric.label}
+              </p>
             </>
           );
           return metric.href ? (
             <Link
               key={metric.label}
               href={metric.href}
-              className="rounded-lg border border-stone-200 bg-white p-4 hover:border-primary-300"
+              className="transition-all"
+              style={{
+                borderRadius: 'var(--radius-md)',
+                border: '1px solid var(--color-border)',
+                backgroundColor: 'var(--color-paper-elevated)',
+                padding: '16px',
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.borderColor = 'var(--color-primary-600)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.borderColor = 'var(--color-border)';
+              }}
             >
               {body}
             </Link>
           ) : (
-            <div key={metric.label} className="rounded-lg border border-stone-200 bg-white p-4">
+            <div 
+              key={metric.label}
+              style={{
+                borderRadius: 'var(--radius-md)',
+                border: '1px solid var(--color-border)',
+                backgroundColor: 'var(--color-paper-elevated)',
+                padding: '16px',
+              }}
+            >
               {body}
             </div>
           );

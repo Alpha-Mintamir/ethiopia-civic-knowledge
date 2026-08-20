@@ -20,76 +20,182 @@ export async function Header() {
   const showAdmin = hasPermission(user?.role, "admin:access_dashboard");
 
   return (
-    <header className="sticky top-0 z-40 border-b border-stone-200 bg-white/95 backdrop-blur">
-      <div className="mx-auto flex h-14 max-w-6xl items-center gap-4 px-4">
-        <Link href="/" className="flex shrink-0 items-center gap-2 font-semibold text-primary-800">
-          <Landmark aria-hidden="true" className="size-5" />
-          <span className="text-base">
-            Menged <span className="font-normal text-stone-500">· መንገድ</span>
+    <header 
+      className="sticky top-0 z-40 backdrop-blur-sm"
+      style={{
+        backgroundColor: 'rgba(246, 245, 242, 0.85)',
+        borderBottom: '1px solid var(--color-border)',
+      }}
+    >
+      <div className="mx-auto flex h-16 max-w-6xl items-center gap-6 px-4">
+        <Link 
+          href="/" 
+          className="flex shrink-0 items-center gap-2.5"
+          style={{ color: 'var(--color-fg)' }}
+        >
+          <Landmark aria-hidden="true" className="size-5" style={{ color: 'var(--color-primary-600)' }} />
+          <span className="text-base font-display font-semibold tracking-tight">
+            Menged
           </span>
         </Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-1 md:flex">
+        <nav aria-label="Main" className="hidden items-center gap-1.5 md:flex">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-md px-2.5 py-1.5 text-sm text-stone-600 hover:bg-stone-100 hover:text-stone-900"
+              className="text-sm transition-colors"
+              style={{
+                padding: '6px 12px',
+                borderRadius: 'var(--radius-sm)',
+                color: 'var(--color-fg-muted)',
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = 'var(--color-paper-elevated)';
+                e.currentTarget.style.color = 'var(--color-fg)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.color = 'var(--color-fg-muted)';
+              }}
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="ml-auto flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-2.5">
           <Link
             href="/search"
-            className="hidden rounded-md px-2.5 py-1.5 text-sm text-stone-600 hover:bg-stone-100 sm:block"
+            className="hidden text-sm sm:block"
+            style={{
+              padding: '6px 14px',
+              borderRadius: 'var(--radius-sm)',
+              color: 'var(--color-fg-muted)',
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--color-paper-elevated)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = 'transparent';
+            }}
           >
             Search
           </Link>
           <Link
             href="/contribute"
-            className="hidden rounded-md bg-primary-50 px-3 py-1.5 text-sm font-medium text-primary-800 hover:bg-primary-100 sm:block"
+            className="hidden text-sm font-medium sm:block"
+            style={{
+              padding: '8px 18px',
+              borderRadius: 'var(--radius-pill)',
+              backgroundColor: 'var(--color-primary-600)',
+              color: 'var(--color-paper-elevated)',
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--color-primary-700)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = 'var(--color-primary-600)';
+            }}
           >
             Contribute
           </Link>
           {user ? (
             <details className="group relative">
-              <summary className="flex cursor-pointer list-none items-center gap-2 rounded-md px-2 py-1.5 text-sm text-stone-700 hover:bg-stone-100 [&::-webkit-details-marker]:hidden">
+              <summary 
+                className="flex cursor-pointer list-none items-center gap-2 text-sm [&::-webkit-details-marker]:hidden"
+                style={{
+                  padding: '4px 8px',
+                  borderRadius: 'var(--radius-sm)',
+                  color: 'var(--color-fg)',
+                }}
+              >
                 <span
                   aria-hidden="true"
-                  className="flex size-7 items-center justify-center rounded-full bg-primary-700 text-xs font-semibold text-white"
+                  className="flex size-8 items-center justify-center text-xs font-semibold"
+                  style={{
+                    borderRadius: 'var(--radius-pill)',
+                    backgroundColor: 'var(--color-primary-600)',
+                    color: 'var(--color-paper-elevated)',
+                  }}
                 >
                   {user.name.slice(0, 1).toUpperCase()}
                 </span>
                 <span className="hidden max-w-28 truncate lg:block">{user.name}</span>
               </summary>
-              <div className="absolute right-0 z-50 mt-1 w-56 rounded-md border border-stone-200 bg-white py-1 shadow-lg">
-                <div className="border-b border-stone-100 px-3 py-2">
-                  <p className="truncate text-sm font-medium text-stone-900">{user.name}</p>
-                  <p className="text-xs text-stone-500">{ROLE_LABELS[user.role]}</p>
+              <div 
+                className="absolute right-0 z-50 mt-2 w-56 py-1 shadow-lg"
+                style={{
+                  borderRadius: 'var(--radius-md)',
+                  border: '1px solid var(--color-border)',
+                  backgroundColor: 'var(--color-paper-elevated)',
+                }}
+              >
+                <div 
+                  className="px-3 py-2.5"
+                  style={{ borderBottom: '1px solid var(--color-border)' }}
+                >
+                  <p className="truncate text-sm font-medium" style={{ color: 'var(--color-fg)' }}>
+                    {user.name}
+                  </p>
+                  <p className="text-xs" style={{ color: 'var(--color-fg-muted)' }}>
+                    {ROLE_LABELS[user.role]}
+                  </p>
                 </div>
-                <Link href="/account" className="block px-3 py-2 text-sm text-stone-700 hover:bg-stone-50">
+                <Link 
+                  href="/account" 
+                  className="block px-3 py-2 text-sm"
+                  style={{ color: 'var(--color-fg-muted)' }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.backgroundColor = 'var(--color-paper-muted)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }}
+                >
                   My contributions
                 </Link>
                 {showModeration ? (
                   <Link
                     href="/moderation"
-                    className="block px-3 py-2 text-sm text-stone-700 hover:bg-stone-50"
+                    className="block px-3 py-2 text-sm"
+                    style={{ color: 'var(--color-fg-muted)' }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.backgroundColor = 'var(--color-paper-muted)';
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.backgroundColor = 'transparent';
+                    }}
                   >
                     Moderation queue
                   </Link>
                 ) : null}
                 {showAdmin ? (
-                  <Link href="/admin" className="block px-3 py-2 text-sm text-stone-700 hover:bg-stone-50">
+                  <Link 
+                    href="/admin" 
+                    className="block px-3 py-2 text-sm"
+                    style={{ color: 'var(--color-fg-muted)' }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.backgroundColor = 'var(--color-paper-muted)';
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.backgroundColor = 'transparent';
+                    }}
+                  >
                     Admin dashboard
                   </Link>
                 ) : null}
                 <form action={logoutAction}>
                   <button
                     type="submit"
-                    className="block w-full px-3 py-2 text-left text-sm text-stone-700 hover:bg-stone-50"
+                    className="block w-full px-3 py-2 text-left text-sm"
+                    style={{ color: 'var(--color-fg-muted)' }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.backgroundColor = 'var(--color-paper-muted)';
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.backgroundColor = 'transparent';
+                    }}
                   >
                     Sign out
                   </button>
@@ -99,7 +205,19 @@ export async function Header() {
           ) : (
             <Link
               href="/login"
-              className="rounded-md border border-stone-300 px-3 py-1.5 text-sm font-medium text-stone-700 hover:bg-stone-100"
+              className="text-sm font-medium"
+              style={{
+                padding: '7px 16px',
+                borderRadius: 'var(--radius-pill)',
+                border: '1px solid var(--color-border-strong)',
+                color: 'var(--color-fg)',
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = 'var(--color-paper-elevated)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+              }}
             >
               Sign in
             </Link>

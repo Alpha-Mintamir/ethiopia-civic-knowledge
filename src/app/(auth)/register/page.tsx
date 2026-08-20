@@ -11,16 +11,30 @@ export default async function RegisterPage() {
   if (user) redirect("/account");
 
   return (
-    <div className="mx-auto max-w-sm px-4 py-12">
-      <h1 className="text-2xl font-bold text-stone-900">Create an account</h1>
-      <p className="mt-1 mb-6 text-sm text-stone-600">
-        Contributors help keep civic information accurate for everyone. All contributions are
-        reviewed before publishing.
+    <div className="mx-auto max-w-md px-4 py-16">
+      <h1 
+        className="font-display text-3xl font-semibold tracking-tight"
+        style={{ color: 'var(--color-fg)' }}
+      >
+        Create an account
+      </h1>
+      <p className="mt-2 mb-8 text-sm leading-relaxed" style={{ color: 'var(--color-fg-muted)' }}>
+        Help keep civic information accurate for everyone. All contributions are reviewed before publishing.
       </p>
       <RegisterForm />
-      <p className="mt-6 text-sm text-stone-600">
+      <p className="mt-6 text-sm" style={{ color: 'var(--color-fg-muted)' }}>
         Already have an account?{" "}
-        <Link href="/login" className="font-medium text-primary-700 hover:underline">
+        <Link 
+          href="/login" 
+          className="font-medium transition-colors"
+          style={{ color: 'var(--color-primary-600)' }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.textDecoration = 'underline';
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.textDecoration = 'none';
+          }}
+        >
           Sign in
         </Link>
       </p>
