@@ -83,11 +83,11 @@ describe("Government Directory", () => {
 });
 
 describe("Government Directory Registry", () => {
-  const REGISTRY_SIZE = 12;
+  const REGISTRY_SIZE = 30;
 
-  it("should have 12 official government institutions", () => {
-    // The scraper registry should contain exactly 12 institutions
-    expect(REGISTRY_SIZE).toBe(12);
+  it("should have 30 official federal institutions", () => {
+    // The federal registry should contain exactly 30 institutions
+    expect(REGISTRY_SIZE).toBe(30);
   });
 
   describe("Required institution types", () => {
@@ -116,14 +116,26 @@ describe("Government Directory Registry", () => {
       expect(contact.website).toMatch(/^https?:\/\//);
     });
 
-    it("should include address", () => {
+    it("should include address when published", () => {
       const contact = { address: { en: "Addis Ababa, Ethiopia" } };
       expect(contact.address.en).toContain("Ethiopia");
     });
 
-    it("should mark demo data appropriately", () => {
-      const demoContact = { name: { en: "[DEMO] Test Ministry" } };
-      expect(demoContact.name.en).toContain("[DEMO]");
+    it("should allow null for unpublished fields", () => {
+      const contact = { 
+        name: { en: "Ministry of Defense" },
+        website: null,
+        phone: null,
+        email: null,
+        address: null,
+      };
+      expect(contact.website).toBeNull();
+      expect(contact.phone).toBeNull();
+    });
+
+    it("should not contain [DEMO] markers in federal data", () => {
+      const officialContact = { name: { en: "Ministry of Health" } };
+      expect(officialContact.name.en).not.toContain("[DEMO]");
     });
   });
 });

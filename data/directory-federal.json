@@ -1,0 +1,516 @@
+{
+  "generatedAt": "2026-08-20T12:29:00Z",
+  "notes": "Verified 20 August 2026 from official .gov.et pages and the PMO public API. Second scrape completed same day. A field is recorded only when the exact value appeared on an official page. Bare city-only Addis Ababa filler omitted. ERCA superseded by Ministry of Revenues.",
+  "institutions": [
+    {
+      "slug": "office-of-the-prime-minister",
+      "name": {"en": "Prime Minister's Office"},
+      "orgType": "office",
+      "description": {"en": "The official portal of the Prime Minister's Office of Ethiopia."},
+      "website": "https://www.pmo.gov.et/",
+      "phone": "+251 111 400 740",
+      "email": "info@pmo.gov.et",
+      "address": {"en": "Lorenzo Te'azaz Road; P.O.Box 1031 Addis Ababa, Ethiopia"},
+      "sources": {
+        "name": "https://www.pmo.gov.et/api/v1/preview/portal?lang=en",
+        "website": "https://www.pmo.gov.et/",
+        "phone": "https://www.pmo.gov.et/api/v1/preview/portal?lang=en",
+        "email": "https://www.pmo.gov.et/api/v1/preview/portal?lang=en",
+        "address": "https://www.pmo.gov.et/api/v1/preview/portal?lang=en"
+      }
+    },
+    {
+      "slug": "ministry-of-foreign-affairs",
+      "name": {"en": "Ministry of Foreign Affairs"},
+      "orgType": "ministry",
+      "description": null,
+      "website": "https://mfa.gov.et/",
+      "phone": null,
+      "email": null,
+      "address": null,
+      "sources": {
+        "name": "https://www.pmo.gov.et/api/v1/preview/unit?lang=en",
+        "website": "https://mfa.gov.et/",
+        "phone": null,
+        "email": null,
+        "address": null
+      }
+    },
+    {
+      "slug": "ministry-of-peace",
+      "name": {"en": "Ministry of Peace"},
+      "orgType": "ministry",
+      "description": null,
+      "website": "https://mop.gov.et/en",
+      "phone": "+251114620276",
+      "email": "peace@mop.gov.et",
+      "address": {"en": "Welo Sefer, Addis Ababa, Ethiopia; P.O.Box 5608"},
+      "sources": {
+        "name": "https://www.pmo.gov.et/api/v1/preview/unit?lang=en",
+        "website": "https://mop.gov.et/en",
+        "phone": "https://mop.gov.et/en",
+        "email": "https://mop.gov.et/en",
+        "address": "https://mop.gov.et/en"
+      }
+    },
+    {
+      "slug": "ministry-of-defense",
+      "name": {"en": "Ministry of Defense"},
+      "orgType": "ministry",
+      "description": null,
+      "website": null,
+      "phone": null,
+      "email": null,
+      "address": null,
+      "sources": {
+        "name": "https://www.pmo.gov.et/api/v1/preview/unit?lang=en",
+        "website": null,
+        "phone": null,
+        "email": null,
+        "address": null
+      }
+    },
+    {
+      "slug": "ministry-of-trade-and-regional-integration",
+      "name": {"en": "Ministry of Trade and Regional Integration", "am": "ንግድና ቀጣናዊ ትስስር ሚኒስቴር"},
+      "orgType": "ministry",
+      "description": null,
+      "website": "https://www.motri.gov.et/",
+      "phone": "+251 115 15 36",
+      "email": null,
+      "address": null,
+      "sources": {
+        "name": "https://www.motri.gov.et/contact",
+        "website": "https://www.motri.gov.et/",
+        "phone": "https://www.motri.gov.et/contact",
+        "email": null,
+        "address": null
+      }
+    },
+    {
+      "slug": "ministry-of-finance",
+      "name": {"en": "Ministry of Finance"},
+      "orgType": "ministry",
+      "description": null,
+      "website": "https://www.mofed.gov.et/",
+      "phone": "+25111 155 2015",
+      "email": "infopr@mofed.gov.et",
+      "address": null,
+      "sources": {
+        "name": "https://www.mofed.gov.et/",
+        "website": "https://www.mofed.gov.et/",
+        "phone": "https://www.mofed.gov.et/contact/",
+        "email": "https://www.mofed.gov.et/contact/",
+        "address": null
+      }
+    },
+    {
+      "slug": "ministry-of-justice",
+      "name": {"en": "Ministry of Justice"},
+      "orgType": "ministry",
+      "description": null,
+      "website": "https://justice.gov.et/en/",
+      "phone": "+251 115 51 50 99",
+      "email": null,
+      "address": {"en": "infront of Bambis, Addis Ababa, Ethiopia"},
+      "sources": {
+        "name": "https://justice.gov.et/en/",
+        "website": "https://justice.gov.et/en/",
+        "phone": "https://justice.gov.et/en/",
+        "email": null,
+        "address": "https://justice.gov.et/en/"
+      }
+    },
+    {
+      "slug": "ministry-of-industry",
+      "name": {"en": "Ministry of Industry"},
+      "orgType": "ministry",
+      "description": null,
+      "website": "https://moi.gov.et/en",
+      "phone": "+251115158035 / +251115533433",
+      "email": null,
+      "address": {"en": "ወረዳ 09 ባሻወልዴ ችሎት, አራዳ ክፍለከተማ, አዲስ አበባ"},
+      "sources": {
+        "name": "https://moi.gov.et/en",
+        "website": "https://moi.gov.et/en",
+        "phone": "https://moi.gov.et/en/contact",
+        "email": null,
+        "address": "https://moi.gov.et/en/contact"
+      }
+    },
+    {
+      "slug": "ministry-of-innovation-and-technology",
+      "name": {"en": "Ministry of Innovation and Technology"},
+      "orgType": "ministry",
+      "description": {"en": "The government merged the former Ministry of Science and Technology and the Ministry of Communication and Information Technology to form the Ministry of Innovation and Technology in 2019."},
+      "website": "http://www.mint.gov.et/",
+      "phone": "+251118132191 / +251-111-265737",
+      "email": "contact@mint.gov.et",
+      "address": {"en": "Lisie G/Mariam, Arada Sub-City, Addis Ababa, Ethiopia"},
+      "sources": {
+        "name": "http://www.mint.gov.et/",
+        "website": "http://www.mint.gov.et/",
+        "phone": "http://www.mint.gov.et/contact-us",
+        "email": "http://www.mint.gov.et/contact-us",
+        "address": "http://www.mint.gov.et/contact-us"
+      }
+    },
+    {
+      "slug": "ministry-of-urban-and-infrastructure",
+      "name": {"en": "Ministry of Urban and Infrastructure"},
+      "orgType": "ministry",
+      "description": {"en": "Welcome to the official website of the Ministry of Urban and Infrastructure of Ethiopia."},
+      "website": "https://mui.gov.et/",
+      "phone": "0115-531688 / 0115-531672 / 0115-157952",
+      "email": "contact@mui.gov.et",
+      "address": {"en": "Ministry of Urban and Infrastructure Building, In front of National Bank of Ethiopia. P.O Box 3040, Addis Ababa, Ethiopia"},
+      "sources": {
+        "name": "https://mui.gov.et/",
+        "website": "https://mui.gov.et/",
+        "phone": "https://mui.gov.et/contact/",
+        "email": "https://mui.gov.et/contact/",
+        "address": "https://mui.gov.et/contact/"
+      }
+    },
+    {
+      "slug": "ministry-of-water-and-energy",
+      "name": {"en": "Ministry of Water and Energy"},
+      "orgType": "ministry",
+      "description": null,
+      "website": "https://mowe.gov.et/",
+      "phone": "+251 0116626325",
+      "email": "info@mowe.gov.et",
+      "address": {"en": "Haile G/Sillassie Road, POBox 5744 Addis Ababa"},
+      "sources": {
+        "name": "https://mowe.gov.et/",
+        "website": "https://mowe.gov.et/",
+        "phone": "https://mowe.gov.et/contact",
+        "email": "https://mowe.gov.et/contact",
+        "address": "https://mowe.gov.et/contact"
+      }
+    },
+    {
+      "slug": "ministry-of-tourism",
+      "name": {"en": "Ministry of Tourism", "am": "ቱሪዝም ሚኒስቴር"},
+      "orgType": "ministry",
+      "description": null,
+      "website": "https://mot.gov.et/",
+      "phone": "+251 11 861 96 18 / +251 116 18 47 15 / +251 9 35 20 31 38",
+      "email": "info@mot.gov.et",
+      "address": {"en": "Africa Avenue Behind DH Geda Building Addis Ababa, Ethiopia"},
+      "sources": {
+        "name": "https://mot.gov.et/",
+        "website": "https://mot.gov.et/",
+        "phone": "https://mot.gov.et/contact-us/",
+        "email": "https://mot.gov.et/contact-us/",
+        "address": "https://mot.gov.et/contact-us/"
+      }
+    },
+    {
+      "slug": "ministry-of-education",
+      "name": {"en": "Ministry of Education"},
+      "orgType": "ministry",
+      "description": {"en": "FDRE Ministry of Education is a Governmental Organization Headquartered in Arada sub-city, Addis Ababa, Ethiopia."},
+      "website": "https://moe.gov.et/",
+      "phone": "+251111565529 / +251111553133",
+      "email": "info@moe.gov.et",
+      "address": {"en": "4 kilo, Arada Sub-City, Addis Ababa"},
+      "sources": {
+        "name": "https://moe.gov.et/",
+        "website": "https://moe.gov.et/",
+        "phone": "https://moe.gov.et/contact-us",
+        "email": "https://moe.gov.et/contact-us",
+        "address": "https://moe.gov.et/contact-us"
+      }
+    },
+    {
+      "slug": "ministry-of-health",
+      "name": {"en": "Ministry of Health"},
+      "orgType": "ministry",
+      "description": null,
+      "website": "https://www.moh.gov.et/",
+      "phone": "+251-115-517011",
+      "email": "moh@moh.gov.et / info@moh.gov.et",
+      "address": {"en": "1234 Sudan Streat Addis Ababa, Ethiopia"},
+      "sources": {
+        "name": "https://www.moh.gov.et/",
+        "website": "https://www.moh.gov.et/",
+        "phone": "https://www.moh.gov.et/",
+        "email": "https://www.moh.gov.et/contact",
+        "address": "https://www.moh.gov.et/"
+      }
+    },
+    {
+      "slug": "ministry-of-women-and-social-affairs",
+      "name": {"en": "Ministry of Women and Social Affairs"},
+      "orgType": "ministry",
+      "description": null,
+      "website": "https://www.mowsa.gov.et/",
+      "phone": "+251-11-862 5869",
+      "email": "info@mowsa.gov.et",
+      "address": {"en": "4kilo, Addis Ababa, Behind Tourist Hotel"},
+      "sources": {
+        "name": "https://www.pmo.gov.et/api/v1/preview/unit?lang=en",
+        "website": "https://www.mowsa.gov.et/",
+        "phone": "https://www.mowsa.gov.et/",
+        "email": "https://www.mowsa.gov.et/",
+        "address": "https://www.mowsa.gov.et/"
+      }
+    },
+    {
+      "slug": "ministry-of-labor-and-skills",
+      "name": {"en": "Ministry of Labor and Skills"},
+      "orgType": "ministry",
+      "description": null,
+      "website": "https://mols.gov.et/",
+      "phone": "+251 116 671792",
+      "email": "info@mols.gov.et",
+      "address": {"en": "Behind Lambert Ethiopian Technical and Vocational Institute; Po Box: 25534"},
+      "sources": {
+        "name": "https://mols.gov.et/contact-us/",
+        "website": "https://mols.gov.et/",
+        "phone": "https://mols.gov.et/contact-us/",
+        "email": "https://mols.gov.et/contact-us/",
+        "address": "https://mols.gov.et/contact-us/"
+      }
+    },
+    {
+      "slug": "ministry-of-culture-and-sport",
+      "name": {"en": "Ministry of Culture and Sport"},
+      "orgType": "ministry",
+      "description": null,
+      "website": null,
+      "phone": null,
+      "email": null,
+      "address": null,
+      "sources": {
+        "name": "https://www.pmo.gov.et/api/v1/preview/unit?lang=en",
+        "website": null,
+        "phone": null,
+        "email": null,
+        "address": null
+      }
+    },
+    {
+      "slug": "ministry-of-revenues",
+      "name": {"en": "Ministry of Revenues"},
+      "orgType": "ministry",
+      "description": null,
+      "website": "https://www.mor.gov.et/",
+      "phone": "+251 11 662 98 00 (call centre 8199)",
+      "email": "info.mor@mor.gov.et",
+      "address": {"en": "P.O.Box 2559 Addis Ababa, Ethiopia"},
+      "sources": {
+        "name": "https://www.pmo.gov.et/api/v1/preview/unit?lang=en",
+        "website": "https://www.mor.gov.et/",
+        "phone": "https://mor.gov.et/assets/index-EqKj68Py.js",
+        "email": "https://mor.gov.et/assets/index-EqKj68Py.js",
+        "address": "https://mor.gov.et/assets/index-EqKj68Py.js"
+      }
+    },
+    {
+      "slug": "ministry-of-transport-and-logistics",
+      "name": {"en": "Ministry of Transport and Logistics"},
+      "orgType": "ministry",
+      "description": null,
+      "website": "https://www.motl.gov.et/",
+      "phone": "+251 115518292",
+      "email": "info@motl.gov.et",
+      "address": null,
+      "sources": {
+        "name": "https://www.motl.gov.et/",
+        "website": "https://www.motl.gov.et/",
+        "phone": "https://www.motl.gov.et/",
+        "email": "https://www.motl.gov.et/",
+        "address": null
+      }
+    },
+    {
+      "slug": "ministry-of-mines",
+      "name": {"en": "Ministry of Mines", "am": "የማዕድን ሚኒስቴር"},
+      "orgType": "ministry",
+      "description": null,
+      "website": "https://www.mom.gov.et/en",
+      "phone": null,
+      "email": null,
+      "address": null,
+      "sources": {
+        "name": "https://www.mom.gov.et/en",
+        "website": "https://www.mom.gov.et/en",
+        "phone": null,
+        "email": null,
+        "address": null
+      }
+    },
+    {
+      "slug": "ministry-of-agriculture",
+      "name": {"en": "Ministry of Agriculture"},
+      "orgType": "ministry",
+      "description": null,
+      "website": "https://www.moa.gov.et/",
+      "phone": "+251 11646 21 99",
+      "email": "info@moa.gov.et",
+      "address": {"en": "Addis Ababa (Headquarters), Gurd Shola (Near to Century Mall) on the way to Egzher Ab, Addis Ababa. PO Box 62347"},
+      "sources": {
+        "name": "https://www.moa.gov.et/",
+        "website": "https://www.moa.gov.et/",
+        "phone": "https://www.moa.gov.et/contact-us/",
+        "email": "https://www.moa.gov.et/contact-us/",
+        "address": "https://www.moa.gov.et/contact-us/"
+      }
+    },
+    {
+      "slug": "ministry-of-planning-and-development",
+      "name": {"en": "Ministry of Planning and Development"},
+      "orgType": "ministry",
+      "description": null,
+      "website": "https://mopd.gov.et/en/",
+      "phone": "0111403049",
+      "email": "info@mopd.gov.et",
+      "address": {"en": "6kilo, Addis Ababa, Ethiopia"},
+      "sources": {
+        "name": "https://mopd.gov.et/en/",
+        "website": "https://mopd.gov.et/en/",
+        "phone": "https://mopd.gov.et/en/",
+        "email": "https://mopd.gov.et/en/",
+        "address": "https://mopd.gov.et/en/"
+      }
+    },
+    {
+      "slug": "ministry-of-irrigation-and-lowlands",
+      "name": {"en": "Ministry of Irrigation and Lowlands"},
+      "orgType": "ministry",
+      "description": {"en": "The establishment of the Ministry of Irrigation and Lowlands (MILLs) signals a bold step forward in our pursuit of these noble objectives."},
+      "website": "https://mills.gov.et/",
+      "phone": null,
+      "email": null,
+      "address": {"en": "Ministry Main Office Kazanchis Addis Ababa, Ethiopia"},
+      "sources": {
+        "name": "https://mills.gov.et/",
+        "website": "https://mills.gov.et/",
+        "phone": null,
+        "email": null,
+        "address": "https://mills.gov.et/contact/"
+      }
+    },
+    {
+      "slug": "national-bank-of-ethiopia",
+      "name": {"en": "National Bank of Ethiopia"},
+      "orgType": "authority",
+      "description": {"en": "The NBE has been entrusted with carrying out a significant set of responsibilities: administering the nation's monetary policy, providing its bank notes and coins, acting as a banker for the government, supervising financial institutions, managing the exchange rate as well as foreign exchange reserves, and undertaking economic research."},
+      "website": "https://nbe.gov.et/",
+      "phone": "6230",
+      "email": "nbeinfo@nbe.gov.et",
+      "address": {"en": "Sudan Street 6230; P.O.Box: 5550"},
+      "sources": {
+        "name": "https://nbe.gov.et/",
+        "website": "https://nbe.gov.et/",
+        "phone": "https://nbe.gov.et/contact/",
+        "email": "https://nbe.gov.et/",
+        "address": "https://nbe.gov.et/"
+      }
+    },
+    {
+      "slug": "immigration-and-citizenship-service",
+      "name": {"en": "Immigration and Citizenship Service"},
+      "orgType": "agency",
+      "description": {"en": "To ensure people's identity and freedom of movement by providing accessible, secure, and high-quality travel, civil status, and national identification document services to users."},
+      "website": "https://ics.gov.et/",
+      "phone": "8133",
+      "email": "support@ics.gov.et",
+      "address": {"en": "Gotera Interchange, Kirkos Sub-city, Addis Ababa/Ethiopia"},
+      "sources": {
+        "name": "https://ics.gov.et/",
+        "website": "https://ics.gov.et/",
+        "phone": "https://ics.gov.et/contact/",
+        "email": "https://ics.gov.et/contact/",
+        "address": "https://ics.gov.et/contact/"
+      }
+    },
+    {
+      "slug": "ethiopian-investment-commission",
+      "name": {"en": "Ethiopian Investment Commission"},
+      "orgType": "commission",
+      "description": null,
+      "website": "https://investethiopia.gov.et/",
+      "phone": "+251 11 551 0033",
+      "email": "info@eic.gov.et",
+      "address": {"en": "AL FISH Building, Addis Ababa, Tito St (Next to Development Bank of Ethiopia, Behind Federal Ethics and Anti-Corruption Commission); P.O. Box 2313"},
+      "sources": {
+        "name": "https://investethiopia.gov.et/",
+        "website": "https://investethiopia.gov.et/",
+        "phone": "https://investethiopia.gov.et/contact-us/",
+        "email": "https://investethiopia.gov.et/contact-us/",
+        "address": "https://investethiopia.gov.et/contact-us/"
+      }
+    },
+    {
+      "slug": "house-of-peoples-representatives",
+      "name": {"en": "House of Peoples Representatives of FDRE", "am": "የህዝብ ተወካዮች ምክር ቤት"},
+      "orgType": "office",
+      "description": null,
+      "website": "https://www.hopr.gov.et/",
+      "phone": "+251-111-241000",
+      "email": "info@hopr.gov.et",
+      "address": {"en": "4 ኪሎ አዲስ አበባ ኢትዮጵያ; ፖ.ሳ.ቁ 800001"},
+      "sources": {
+        "name": "https://www.hopr.gov.et/",
+        "website": "https://www.hopr.gov.et/",
+        "phone": "https://www.hopr.gov.et/Home/ContactUs",
+        "email": "https://www.hopr.gov.et/Home/ContactUs",
+        "address": "https://www.hopr.gov.et/Home/ContactUs"
+      }
+    },
+    {
+      "slug": "house-of-federation",
+      "name": {"en": "House of Federation", "am": "የፌዴሬሽን ምክር ቤት"},
+      "orgType": "office",
+      "description": null,
+      "website": "http://www.hofethiopia.gov.et/",
+      "phone": "+251-111-242-301/3 / +251-111-242-309 / +251-111-223-322",
+      "email": null,
+      "address": {"en": "20212/1000; አዲስ አበባ፣ ኢትዮጵያ"},
+      "sources": {
+        "name": "http://www.hofethiopia.gov.et/",
+        "website": "http://www.hofethiopia.gov.et/",
+        "phone": "http://www.hofethiopia.gov.et/",
+        "email": null,
+        "address": "http://www.hofethiopia.gov.et/"
+      }
+    },
+    {
+      "slug": "government-communication-service",
+      "name": {"en": "Government Communication Service"},
+      "orgType": "agency",
+      "description": {"en": "Creating consistent, efficient, successful communication and information systems in government organizations, building a government communication management system, Ensuring citizens have access to government information. As well as improving skills, research, professionalism and innovation."},
+      "website": "https://www.gcs.gov.et/en/",
+      "phone": "+251-111-70-49-14",
+      "email": "info@gcs.gov.et",
+      "address": {"en": "P.O.Box: 31603, Addis Ababa, Ethiopia"},
+      "sources": {
+        "name": "https://www.gcs.gov.et/en/",
+        "website": "https://www.gcs.gov.et/en/",
+        "phone": "https://www.gcs.gov.et/en/",
+        "email": "https://www.gcs.gov.et/en/",
+        "address": "https://www.gcs.gov.et/en/"
+      }
+    },
+    {
+      "slug": "federal-civil-service-commission",
+      "name": {"en": "Federal Civil Service Commission"},
+      "orgType": "commission",
+      "description": null,
+      "website": "https://www.csc.gov.et/",
+      "phone": "+251 11 5 54 96 66/67/68",
+      "email": "ethiocs@gmail.com",
+      "address": {"en": "Po.Box 1080"},
+      "sources": {
+        "name": "https://www.mocs.gov.et/",
+        "website": "https://www.mocs.gov.et/",
+        "phone": "https://www.mocs.gov.et/",
+        "email": "https://www.mocs.gov.et/",
+        "address": "https://www.mocs.gov.et/"
+      }
+    }
+  ]
+}
