@@ -184,9 +184,10 @@ export default async function DirectoryPage({
       <div className="mt-6 rounded-lg border border-stone-200 bg-stone-50 p-4 text-sm text-stone-600">
         <p className="font-semibold text-stone-900">About this directory</p>
         <p className="mt-1">
-          Contact information is sourced from publicly available government resources. While we
-          strive to keep it current, always verify critical information directly with the relevant
-          institution. Some entries are marked <strong>[DEMO]</strong> for platform testing.
+          Contact information is taken from official government websites and Prime Minister's Office listings.
+          Some institutions have not published phone numbers, email addresses, or physical addresses on their
+          official websites. We never invent contact information. Always verify critical information directly
+          with the relevant institution.
         </p>
       </div>
     </div>
