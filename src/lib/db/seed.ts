@@ -424,7 +424,9 @@ Tax Identification Number (TIN) is required for:
   console.log("  contributor@civic.et / contributor123 (Contributor)");
   console.log("  trusted@civic.et / trusted123 (Trusted Contributor)");
   console.log("\n⚠️  All content is marked as DEMO/COMMUNITY TEMPLATE");
-  console.log("   Never confuse with official government information!\n");
+  console.log("   Never confuse with official government information!");
+  console.log("\n💡 To build the search index, start the dev server and run:");
+  console.log("   curl -X POST http://localhost:3000/api/admin/reindex\n");
 }
 
 seed()
