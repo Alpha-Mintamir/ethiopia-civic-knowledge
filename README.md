@@ -131,15 +131,27 @@ This creates:
 - `trusted@civic.et` / `trusted123` (Trusted Contributor)
 - `contributor@civic.et` / `contributor123` (Regular Contributor)
 
-### 6. Start Development Server
+### 6. Build Search Index
+
+Start the dev server and trigger a search index rebuild:
+
+```bash
+# In one terminal:
+pnpm dev
+
+# In another terminal:
+curl -X POST http://localhost:3000/api/admin/reindex
+```
+
+The search index is now populated and search will work properly.
+
+### 7. Visit the Application
 
 ```bash
 pnpm dev
 ```
 
 Visit [http://localhost:3000](http://localhost:3000)
-
-## 🧪 Testing
 
 ```bash
 # Run tests
