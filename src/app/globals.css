@@ -1,20 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  /* Civic palette: deep Ethiopian green as primary, warm neutrals,
-     restrained amber for community accents. */
-  --color-primary-50: #f0f9f2;
-  --color-primary-100: #dbf0e0;
-  --color-primary-200: #b9e1c6;
-  --color-primary-300: #8bcaa3;
-  --color-primary-400: #58ac7b;
-  --color-primary-500: #37905e;
-  --color-primary-600: #26734a;
-  --color-primary-700: #1f5c3d;
-  --color-primary-800: #1b4a33;
-  --color-primary-900: #173d2b;
-  --color-primary-950: #0b2218;
+  /* Warm paper + forest green design system
+     Inspired by natural materials, warm neutrals, restrained forest green accent */
+  
+  /* Forest green accent palette */
+  --color-primary-50: #e7f0ec;
+  --color-primary-100: #d4e6dd;
+  --color-primary-200: #a9ccbb;
+  --color-primary-300: #7eb39a;
+  --color-primary-400: #539978;
+  --color-primary-500: #1f4b3a;
+  --color-primary-600: #1f4b3a;
+  --color-primary-700: #173a2d;
+  --color-primary-800: #132e24;
+  --color-primary-900: #0f231c;
+  --color-primary-950: #081410;
 
+  /* Warm amber for community content (kept subtle) */
   --color-accent-50: #fefaec;
   --color-accent-100: #fbf0ca;
   --color-accent-200: #f7e090;
@@ -26,27 +29,103 @@
   --color-accent-800: #8a3e15;
   --color-accent-900: #723314;
 
+  /* Warm neutral palette - paper background */
+  --color-paper: #f6f5f2;
+  --color-paper-elevated: #ffffff;
+  --color-paper-muted: #eeede8;
+  
+  /* Custom radius tokens */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system,
     "Noto Sans Ethiopic", "Nyala", sans-serif;
+  --font-display: var(--font-newsreader), ui-serif, Georgia, serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
 :root {
   color-scheme: light;
+  
+  /* Foreground colors */
+  --color-fg: #141413;
+  --color-fg-muted: #6b6a64;
+  --color-fg-subtle: #9a9890;
+  
+  /* Border colors */
+  --color-border: #e4e2da;
+  --color-border-strong: #d0cec4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    
+    --color-paper: #0f0f0e;
+    --color-paper-elevated: #1a1a18;
+    --color-paper-muted: #141413;
+    
+    --color-fg: #f6f5f2;
+    --color-fg-muted: #9a9890;
+    --color-fg-subtle: #6b6a64;
+    
+    --color-border: #2a2a28;
+    --color-border-strong: #3a3a36;
+    
+    /* Adjust primary accent for dark mode */
+    --color-primary-500: #7db39a;
+    --color-primary-600: #7db39a;
+  }
 }
 
 body {
-  @apply bg-stone-50 text-stone-900 antialiased;
+  background-color: var(--color-paper);
+  color: var(--color-fg);
+  @apply antialiased;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Visible focus states everywhere for keyboard navigation. */
+/* Visible focus states everywhere for keyboard navigation */
 :focus-visible {
   outline: 2px solid var(--color-primary-600);
   outline-offset: 2px;
-  border-radius: 2px;
+  border-radius: var(--radius-sm);
 }
 
 ::selection {
-  background-color: var(--color-primary-100);
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-900);
+}
+
+/* Utility classes for hover states using CSS variables */
+.hover-bg-elevated:hover {
+  background-color: var(--color-paper-elevated);
+}
+
+.hover-bg-muted:hover {
+  background-color: var(--color-paper-muted);
+}
+
+.hover-text-primary:hover {
+  color: var(--color-primary-600);
+}
+
+.hover-text-primary-dark:hover {
+  color: var(--color-primary-700);
+}
+
+.hover-text-fg:hover {
+  color: var(--color-fg);
+}
+
+.hover-border-primary:hover {
+  border-color: var(--color-primary-600);
+}
+
+.hover-bg-primary-700:hover {
+  background-color: var(--color-primary-700);
 }

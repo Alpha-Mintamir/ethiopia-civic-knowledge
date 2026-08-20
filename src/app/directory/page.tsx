@@ -42,28 +42,39 @@ export default async function DirectoryPage({
   ]);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8">
+    <div className="mx-auto max-w-6xl px-4 py-10">
       <Breadcrumbs items={[{ label: "Directory" }]} />
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-stone-900">Government Directory</h1>
-        <p className="mt-1 max-w-2xl text-stone-600">
-          Contact information for Ethiopian government institutions: ministries, authorities,
-          agencies, and commissions.
+      <div className="mb-8">
+        <h1 
+          className="font-display text-3xl font-semibold tracking-tight"
+          style={{ color: 'var(--color-fg)' }}
+        >
+          Government Directory
+        </h1>
+        <p className="mt-2 max-w-2xl text-lg" style={{ color: 'var(--color-fg-muted)' }}>
+          Contact information for Ethiopian government institutions.
         </p>
       </div>
 
       {availableTypes.length > 1 && (
-        <nav aria-label="Filter by type" className="mb-6 overflow-x-auto">
-          <ul className="flex gap-1.5">
+        <nav aria-label="Filter by type" className="mb-8 overflow-x-auto">
+          <ul className="flex gap-2">
             <li>
               <Link
                 href="/directory"
                 aria-current={!typeFilter ? "page" : undefined}
                 className={
                   !typeFilter
-                    ? "inline-block rounded-full bg-primary-700 px-3 py-1 text-xs font-medium text-white"
-                    : "inline-block rounded-full border border-stone-200 bg-white px-3 py-1 text-xs text-stone-600 hover:border-primary-300"
+                    ? "inline-block text-xs font-medium"
+                    : "inline-block text-xs font-medium transition-all hover-border-primary"
                 }
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: 'var(--radius-pill)',
+                  backgroundColor: !typeFilter ? 'var(--color-primary-600)' : 'var(--color-paper-elevated)',
+                  color: !typeFilter ? 'var(--color-paper-elevated)' : 'var(--color-fg-muted)',
+                  border: !typeFilter ? 'none' : '1px solid var(--color-border)',
+                }}
               >
                 All types
               </Link>
@@ -75,9 +86,16 @@ export default async function DirectoryPage({
                   aria-current={typeFilter === type ? "page" : undefined}
                   className={
                     typeFilter === type
-                      ? "inline-block rounded-full bg-primary-700 px-3 py-1 text-xs font-medium text-white"
-                      : "inline-block rounded-full border border-stone-200 bg-white px-3 py-1 text-xs text-stone-600 hover:border-primary-300"
+                      ? "inline-block text-xs font-medium"
+                      : "inline-block text-xs font-medium transition-all hover-border-primary"
                   }
+                  style={{
+                    padding: '8px 16px',
+                    borderRadius: 'var(--radius-pill)',
+                    backgroundColor: typeFilter === type ? 'var(--color-primary-600)' : 'var(--color-paper-elevated)',
+                    color: typeFilter === type ? 'var(--color-paper-elevated)' : 'var(--color-fg-muted)',
+                    border: typeFilter === type ? 'none' : '1px solid var(--color-border)',
+                  }}
                 >
                   {ORG_TYPE_LABELS[type] ?? type}
                 </Link>
@@ -93,101 +111,159 @@ export default async function DirectoryPage({
           description="No directory contacts match your criteria."
         />
       ) : (
-        <ul className="grid gap-4 sm:grid-cols-2">
+        <ul className="grid gap-5 sm:grid-cols-2">
           {contacts.map((contact) => (
             <li key={contact.id}>
-              <Card className="h-full">
-                <CardContent className="p-4">
-                  <div className="mb-3 flex items-start justify-between gap-3">
-                    <Building2 aria-hidden="true" className="size-5 shrink-0 text-primary-700" />
-                    <span className="rounded-full bg-stone-100 px-2 py-0.5 text-xs font-medium capitalize text-stone-600">
-                      {contact.orgType}
+              <div 
+                className="relative h-full overflow-hidden"
+                style={{
+                  borderRadius: 'var(--radius-md)',
+                  border: '1px solid var(--color-border)',
+                  backgroundColor: 'var(--color-paper-elevated)',
+                  padding: '20px',
+                }}
+              >
+                <div 
+                  className="absolute left-0 top-0 h-full w-1"
+                  style={{ backgroundColor: 'var(--color-primary-600)' }}
+                />
+                <div className="mb-4 flex items-start justify-between gap-3">
+                  <Building2 
+                    aria-hidden="true" 
+                    className="size-5 shrink-0" 
+                    style={{ color: 'var(--color-primary-600)' }}
+                  />
+                  <span 
+                    className="text-xs font-medium capitalize"
+                    style={{
+                      padding: '4px 10px',
+                      borderRadius: 'var(--radius-pill)',
+                      backgroundColor: 'var(--color-paper-muted)',
+                      color: 'var(--color-fg-muted)',
+                    }}
+                  >
+                    {contact.orgType}
+                  </span>
+                </div>
+
+                <h2 className="font-semibold leading-snug" style={{ color: 'var(--color-fg)' }}>
+                  {lt(contact.name)}
+                </h2>
+                {contact.name.am && (
+                  <p className="mt-1 text-sm" style={{ color: 'var(--color-fg-muted)' }} lang="am">
+                    {contact.name.am}
+                  </p>
+                )}
+
+                {contact.description && (
+                  <p className="mt-3 text-sm line-clamp-2" style={{ color: 'var(--color-fg-muted)' }}>
+                    {lt(contact.description)}
+                  </p>
+                )}
+
+                <dl className="mt-4 space-y-2.5 text-sm">
+                  {contact.website && (
+                    <div className="flex items-start gap-2">
+                      <Globe 
+                        aria-hidden="true" 
+                        className="mt-0.5 size-4 shrink-0" 
+                        style={{ color: 'var(--color-fg-subtle)' }}
+                      />
+                      <dd className="min-w-0">
+                        <a
+                          href={contact.website}
+                          target="_blank"
+                          rel="noopener noreferrer nofollow"
+                          className="break-all transition-colors hover:underline"
+                          style={{ color: 'var(--color-primary-600)' }}
+                        >
+                          {contact.website.replace(/^https?:\/\//, "")}
+                        </a>
+                      </dd>
+                    </div>
+                  )}
+                  {contact.phone && (
+                    <div className="flex items-start gap-2">
+                      <Phone 
+                        aria-hidden="true" 
+                        className="mt-0.5 size-4 shrink-0" 
+                        style={{ color: 'var(--color-fg-subtle)' }}
+                      />
+                      <dd>
+                        <a
+                          href={`tel:${contact.phone}`}
+                          className="transition-colors hover-text-primary"
+                          style={{ color: 'var(--color-fg)' }}
+                        >
+                          {contact.phone}
+                        </a>
+                      </dd>
+                    </div>
+                  )}
+                  {contact.email && (
+                    <div className="flex items-start gap-2">
+                      <Mail 
+                        aria-hidden="true" 
+                        className="mt-0.5 size-4 shrink-0" 
+                        style={{ color: 'var(--color-fg-subtle)' }}
+                      />
+                      <dd className="min-w-0">
+                        <a
+                          href={`mailto:${contact.email}`}
+                          className="break-all transition-colors hover-text-primary"
+                          style={{ color: 'var(--color-fg)' }}
+                        >
+                          {contact.email}
+                        </a>
+                      </dd>
+                    </div>
+                  )}
+                  {contact.address && (
+                    <div className="flex items-start gap-2">
+                      <MapPin 
+                        aria-hidden="true" 
+                        className="mt-0.5 size-4 shrink-0" 
+                        style={{ color: 'var(--color-fg-subtle)' }}
+                      />
+                      <dd style={{ color: 'var(--color-fg-muted)' }}>{lt(contact.address)}</dd>
+                    </div>
+                  )}
+                </dl>
+
+                {contact.layer === "community" && (
+                  <p className="mt-4 text-xs" style={{ color: 'var(--color-accent-700)' }}>
+                    <span 
+                      className="font-medium"
+                      style={{
+                        padding: '3px 8px',
+                        borderRadius: 'var(--radius-sm)',
+                        backgroundColor: 'var(--color-accent-50)',
+                      }}
+                    >
+                      COMMUNITY
                     </span>
-                  </div>
-
-                  <h2 className="font-semibold text-stone-900">{lt(contact.name)}</h2>
-                  {contact.name.am && (
-                    <p className="mt-0.5 text-sm text-stone-500" lang="am">
-                      {contact.name.am}
-                    </p>
-                  )}
-
-                  {contact.description && (
-                    <p className="mt-2 text-sm text-stone-600 line-clamp-2">
-                      {lt(contact.description)}
-                    </p>
-                  )}
-
-                  <dl className="mt-3 space-y-2 text-sm">
-                    {contact.website && (
-                      <div className="flex items-start gap-2">
-                        <Globe aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-stone-400" />
-                        <dd className="min-w-0">
-                          <a
-                            href={contact.website}
-                            target="_blank"
-                            rel="noopener noreferrer nofollow"
-                            className="text-primary-700 hover:underline break-all"
-                          >
-                            {contact.website.replace(/^https?:\/\//, "")}
-                          </a>
-                        </dd>
-                      </div>
-                    )}
-                    {contact.phone && (
-                      <div className="flex items-start gap-2">
-                        <Phone aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-stone-400" />
-                        <dd>
-                          <a
-                            href={`tel:${contact.phone}`}
-                            className="text-stone-700 hover:text-primary-700"
-                          >
-                            {contact.phone}
-                          </a>
-                        </dd>
-                      </div>
-                    )}
-                    {contact.email && (
-                      <div className="flex items-start gap-2">
-                        <Mail aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-stone-400" />
-                        <dd className="min-w-0">
-                          <a
-                            href={`mailto:${contact.email}`}
-                            className="text-stone-700 hover:text-primary-700 break-all"
-                          >
-                            {contact.email}
-                          </a>
-                        </dd>
-                      </div>
-                    )}
-                    {contact.address && (
-                      <div className="flex items-start gap-2">
-                        <MapPin aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-stone-400" />
-                        <dd className="text-stone-600">{lt(contact.address)}</dd>
-                      </div>
-                    )}
-                  </dl>
-
-                  {contact.layer === "community" && (
-                    <p className="mt-3 text-xs text-amber-700">
-                      <span className="rounded bg-amber-50 px-1.5 py-0.5 font-medium">COMMUNITY</span>{" "}
-                      Community-reported contact
-                    </p>
-                  )}
-                </CardContent>
-              </Card>
+                    {" "}Community-reported
+                  </p>
+                )}
+              </div>
             </li>
           ))}
         </ul>
       )}
 
-      <div className="mt-6 rounded-lg border border-stone-200 bg-stone-50 p-4 text-sm text-stone-600">
-        <p className="font-semibold text-stone-900">About this directory</p>
-        <p className="mt-1">
-          Contact information is taken from official government websites and Prime Minister's Office listings.
-          Some institutions have not published phone numbers, email addresses, or physical addresses on their
-          official websites. We never invent contact information. Always verify critical information directly
-          with the relevant institution.
+      <div 
+        className="mt-8 text-sm"
+        style={{
+          borderRadius: 'var(--radius-md)',
+          border: '1px solid var(--color-border)',
+          backgroundColor: 'var(--color-paper-muted)',
+          padding: '18px',
+        }}
+      >
+        <p className="font-medium" style={{ color: 'var(--color-fg)' }}>About this directory</p>
+        <p className="mt-2 leading-relaxed" style={{ color: 'var(--color-fg-muted)' }}>
+          Contact information from official government websites and PM Office listings.
+          We never invent contact information. Always verify with the relevant institution.
         </p>
       </div>
     </div>

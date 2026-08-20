@@ -2,49 +2,95 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="mt-16 border-t border-stone-200 bg-white">
-      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 sm:grid-cols-2 lg:grid-cols-4">
+    <footer 
+      className="mt-20"
+      style={{ 
+        borderTop: '1px solid var(--color-border)',
+        backgroundColor: 'var(--color-paper-elevated)',
+      }}
+    >
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <p className="font-semibold text-primary-800">Menged · መንገድ</p>
-          <p className="mt-2 max-w-xs text-sm leading-relaxed text-stone-500">
-            A community-maintained guide to Ethiopian public services and administrative
-            processes. Official information is always cited; community experience is always
-            labeled.
+          <p className="font-display font-semibold" style={{ color: 'var(--color-fg)' }}>
+            Menged
+          </p>
+          <p className="mt-2.5 max-w-xs text-sm leading-relaxed" style={{ color: 'var(--color-fg-muted)' }}>
+            Community civic knowledge for Ethiopia. Official information cited, community experience labeled.
           </p>
         </div>
         <nav aria-label="Explore">
-          <p className="text-sm font-semibold text-stone-900">Explore</p>
-          <ul className="mt-2 space-y-1.5 text-sm text-stone-600">
-            <li><Link className="hover:text-primary-700 hover:underline" href="/processes">Processes</Link></li>
-            <li><Link className="hover:text-primary-700 hover:underline" href="/documents">Documents &amp; templates</Link></li>
-            <li><Link className="hover:text-primary-700 hover:underline" href="/directory">Government directory</Link></li>
-            <li><Link className="hover:text-primary-700 hover:underline" href="/offices">Government offices</Link></li>
-            <li><Link className="hover:text-primary-700 hover:underline" href="/pages">Knowledge guides</Link></li>
-            <li><Link className="hover:text-primary-700 hover:underline" href="/locations">Browse by location</Link></li>
+          <p className="text-sm font-medium" style={{ color: 'var(--color-fg)' }}>Explore</p>
+          <ul className="mt-2.5 space-y-2 text-sm" style={{ color: 'var(--color-fg-muted)' }}>
+            <li>
+              <Link className="transition-colors hover-text-primary" href="/processes">
+                Processes
+              </Link>
+            </li>
+            <li>
+              <Link className="transition-colors hover-text-primary" href="/documents">
+                Documents
+              </Link>
+            </li>
+            <li>
+              <Link className="transition-colors hover-text-primary" href="/directory">
+                Directory
+              </Link>
+            </li>
+            <li>
+              <Link className="transition-colors hover-text-primary" href="/offices">
+                Offices
+              </Link>
+            </li>
+            <li>
+              <Link className="transition-colors hover-text-primary" href="/pages">
+                Guides
+              </Link>
+            </li>
           </ul>
         </nav>
         <nav aria-label="Participate">
-          <p className="text-sm font-semibold text-stone-900">Participate</p>
-          <ul className="mt-2 space-y-1.5 text-sm text-stone-600">
-            <li><Link className="hover:text-primary-700 hover:underline" href="/contribute">How to contribute</Link></li>
-            <li><Link className="hover:text-primary-700 hover:underline" href="/contribute/new-page">Suggest a new guide</Link></li>
-            <li><Link className="hover:text-primary-700 hover:underline" href="/contribute/document">Share a document</Link></li>
-            <li><Link className="hover:text-primary-700 hover:underline" href="/register">Create an account</Link></li>
+          <p className="text-sm font-medium" style={{ color: 'var(--color-fg)' }}>Participate</p>
+          <ul className="mt-2.5 space-y-2 text-sm" style={{ color: 'var(--color-fg-muted)' }}>
+            <li>
+              <Link className="transition-colors hover-text-primary" href="/contribute">
+                Contribute
+              </Link>
+            </li>
+            <li>
+              <Link className="transition-colors hover-text-primary" href="/contribute/new-page">
+                Suggest a guide
+              </Link>
+            </li>
+            <li>
+              <Link className="transition-colors hover-primary" href="/contribute/document">
+                Share a document
+              </Link>
+            </li>
+            <li>
+              <Link className="transition-colors hover-text-primary" href="/register">
+                Create account
+              </Link>
+            </li>
           </ul>
         </nav>
         <div>
-          <p className="text-sm font-semibold text-stone-900">About the information here</p>
-          <p className="mt-2 text-sm leading-relaxed text-stone-500">
-            Menged is not a government website. Content marked{" "}
-            <span className="font-semibold text-primary-800">Official</span> is sourced from
-            government publications; everything else reflects community experience and may be
-            incomplete or outdated. Always confirm critical requirements with the relevant
-            office.
+          <p className="text-sm font-medium" style={{ color: 'var(--color-fg)' }}>
+            About this information
+          </p>
+          <p className="mt-2.5 text-sm leading-relaxed" style={{ color: 'var(--color-fg-muted)' }}>
+            Not a government site. Official content is cited; community content is labeled. 
+            Always verify with the relevant office.
           </p>
         </div>
       </div>
-      <div className="border-t border-stone-100 py-4 text-center text-xs text-stone-400">
-        Built as open civic infrastructure for Ethiopia.
+      <div 
+        className="py-4 text-center text-xs"
+        style={{ 
+          borderTop: '1px solid var(--color-border)',
+          color: 'var(--color-fg-subtle)',
+        }}
+      >
+        Built as civic infrastructure for Ethiopia
       </div>
     </footer>
   );
