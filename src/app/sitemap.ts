@@ -8,10 +8,12 @@ import {
   locations,
   processes,
 } from "@/lib/db/schema";
-import { env } from "@/lib/env";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = env.NEXT_PUBLIC_APP_URL.replace(/\/$/, "");
+  const base = (process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000").replace(/\/$/, "");
 
   const [pageRows, processRows, officeRows, documentRows, locationRows] = await Promise.all([
     db
@@ -37,6 +39,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: base, changeFrequency: "daily", priority: 1 },
     { url: `${base}/processes`, changeFrequency: "daily", priority: 0.9 },
     { url: `${base}/documents`, changeFrequency: "daily", priority: 0.9 },
+    { url: `${base}/directory`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/offices`, changeFrequency: "daily", priority: 0.9 },
     { url: `${base}/pages`, changeFrequency: "daily", priority: 0.9 },
     { url: `${base}/locations`, changeFrequency: "weekly", priority: 0.7 },

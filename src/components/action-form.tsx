@@ -41,7 +41,7 @@ export function ActionForm({
     <form
       action={formAction}
       className={className}
-      key={resetOnSuccess && state.ok ? Date.now() : "form"}
+      key={resetOnSuccess && state.ok ? `${formId}-reset` : formId}
     >
       {!state.ok && state.error ? (
         <Alert variant="error" className="mb-4">

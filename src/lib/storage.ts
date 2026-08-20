@@ -51,8 +51,21 @@ class LocalStorageProvider implements StorageProvider {
 }
 
 const globalForStorage = globalThis as unknown as { storageProvider?: StorageProvider };
-export const storage: StorageProvider = (globalForStorage.storageProvider ??=
-  new LocalStorageProvider(env.STORAGE_DIR));
+
+function getStorage(): StorageProvider {
+  if (!globalForStorage.storageProvider) {
+    globalForStorage.storageProvider = new LocalStorageProvider(env.STORAGE_DIR);
+  }
+  return globalForStorage.storageProvider;
+}
+
+export const storage = new Proxy({} as StorageProvider, {
+  get(_target, prop: string | symbol) {
+    const storageInstance = getStorage();
+    const value = storageInstance[prop as keyof StorageProvider];
+    return typeof value === "function" ? value.bind(storageInstance) : value;
+  },
+});
 
 /**
  * Malware scanning hook. The MVP ships a pass-through scanner; the interface
