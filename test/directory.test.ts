@@ -83,11 +83,11 @@ describe("Government Directory", () => {
 });
 
 describe("Government Directory Registry", () => {
-  const REGISTRY_SIZE = 29;
+  const REGISTRY_SIZE = 30;
 
-  it("should have 29 official federal institutions", () => {
-    // The federal registry should contain exactly 29 institutions
-    expect(REGISTRY_SIZE).toBe(29);
+  it("should have 30 official federal institutions", () => {
+    // The federal registry should contain exactly 30 institutions
+    expect(REGISTRY_SIZE).toBe(30);
   });
 
   describe("Required institution types", () => {
