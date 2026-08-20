@@ -22,52 +22,27 @@ export function Footer() {
           <p className="text-sm font-medium" style={{ color: 'var(--color-fg)' }}>Explore</p>
           <ul className="mt-2.5 space-y-2 text-sm" style={{ color: 'var(--color-fg-muted)' }}>
             <li>
-              <Link 
-                className="transition-colors" 
-                href="/processes"
-                onMouseOver={(e) => { e.currentTarget.style.color = 'var(--color-primary-600)'; }}
-                onMouseOut={(e) => { e.currentTarget.style.color = 'var(--color-fg-muted)'; }}
-              >
+              <Link className="transition-colors hover-text-primary" href="/processes">
                 Processes
               </Link>
             </li>
             <li>
-              <Link 
-                className="transition-colors" 
-                href="/documents"
-                onMouseOver={(e) => { e.currentTarget.style.color = 'var(--color-primary-600)'; }}
-                onMouseOut={(e) => { e.currentTarget.style.color = 'var(--color-fg-muted)'; }}
-              >
+              <Link className="transition-colors hover-text-primary" href="/documents">
                 Documents
               </Link>
             </li>
             <li>
-              <Link 
-                className="transition-colors" 
-                href="/directory"
-                onMouseOver={(e) => { e.currentTarget.style.color = 'var(--color-primary-600)'; }}
-                onMouseOut={(e) => { e.currentTarget.style.color = 'var(--color-fg-muted)'; }}
-              >
+              <Link className="transition-colors hover-text-primary" href="/directory">
                 Directory
               </Link>
             </li>
             <li>
-              <Link 
-                className="transition-colors" 
-                href="/offices"
-                onMouseOver={(e) => { e.currentTarget.style.color = 'var(--color-primary-600)'; }}
-                onMouseOut={(e) => { e.currentTarget.style.color = 'var(--color-fg-muted)'; }}
-              >
+              <Link className="transition-colors hover-text-primary" href="/offices">
                 Offices
               </Link>
             </li>
             <li>
-              <Link 
-                className="transition-colors" 
-                href="/pages"
-                onMouseOver={(e) => { e.currentTarget.style.color = 'var(--color-primary-600)'; }}
-                onMouseOut={(e) => { e.currentTarget.style.color = 'var(--color-fg-muted)'; }}
-              >
+              <Link className="transition-colors hover-text-primary" href="/pages">
                 Guides
               </Link>
             </li>
@@ -77,42 +52,22 @@ export function Footer() {
           <p className="text-sm font-medium" style={{ color: 'var(--color-fg)' }}>Participate</p>
           <ul className="mt-2.5 space-y-2 text-sm" style={{ color: 'var(--color-fg-muted)' }}>
             <li>
-              <Link 
-                className="transition-colors" 
-                href="/contribute"
-                onMouseOver={(e) => { e.currentTarget.style.color = 'var(--color-primary-600)'; }}
-                onMouseOut={(e) => { e.currentTarget.style.color = 'var(--color-fg-muted)'; }}
-              >
+              <Link className="transition-colors hover-text-primary" href="/contribute">
                 Contribute
               </Link>
             </li>
             <li>
-              <Link 
-                className="transition-colors" 
-                href="/contribute/new-page"
-                onMouseOver={(e) => { e.currentTarget.style.color = 'var(--color-primary-600)'; }}
-                onMouseOut={(e) => { e.currentTarget.style.color = 'var(--color-fg-muted)'; }}
-              >
+              <Link className="transition-colors hover-text-primary" href="/contribute/new-page">
                 Suggest a guide
               </Link>
             </li>
             <li>
-              <Link 
-                className="transition-colors" 
-                href="/contribute/document"
-                onMouseOver={(e) => { e.currentTarget.style.color = 'var(--color-primary-600)'; }}
-                onMouseOut={(e) => { e.currentTarget.style.color = 'var(--color-fg-muted)'; }}
-              >
+              <Link className="transition-colors hover-primary" href="/contribute/document">
                 Share a document
               </Link>
             </li>
             <li>
-              <Link 
-                className="transition-colors" 
-                href="/register"
-                onMouseOver={(e) => { e.currentTarget.style.color = 'var(--color-primary-600)'; }}
-                onMouseOut={(e) => { e.currentTarget.style.color = 'var(--color-fg-muted)'; }}
-              >
+              <Link className="transition-colors hover-text-primary" href="/register">
                 Create account
               </Link>
             </li>

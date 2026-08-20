@@ -63,23 +63,17 @@ export default async function DirectoryPage({
               <Link
                 href="/directory"
                 aria-current={!typeFilter ? "page" : undefined}
-                className="inline-block text-xs font-medium transition-all"
+                className={
+                  !typeFilter
+                    ? "inline-block text-xs font-medium"
+                    : "inline-block text-xs font-medium transition-all hover-border-primary"
+                }
                 style={{
                   padding: '8px 16px',
                   borderRadius: 'var(--radius-pill)',
                   backgroundColor: !typeFilter ? 'var(--color-primary-600)' : 'var(--color-paper-elevated)',
                   color: !typeFilter ? 'var(--color-paper-elevated)' : 'var(--color-fg-muted)',
                   border: !typeFilter ? 'none' : '1px solid var(--color-border)',
-                }}
-                onMouseOver={(e) => {
-                  if (typeFilter) {
-                    e.currentTarget.style.borderColor = 'var(--color-primary-600)';
-                  }
-                }}
-                onMouseOut={(e) => {
-                  if (typeFilter) {
-                    e.currentTarget.style.borderColor = 'var(--color-border)';
-                  }
                 }}
               >
                 All types
@@ -90,23 +84,17 @@ export default async function DirectoryPage({
                 <Link
                   href={`/directory?type=${type}`}
                   aria-current={typeFilter === type ? "page" : undefined}
-                  className="inline-block text-xs font-medium transition-all"
+                  className={
+                    typeFilter === type
+                      ? "inline-block text-xs font-medium"
+                      : "inline-block text-xs font-medium transition-all hover-border-primary"
+                  }
                   style={{
                     padding: '8px 16px',
                     borderRadius: 'var(--radius-pill)',
                     backgroundColor: typeFilter === type ? 'var(--color-primary-600)' : 'var(--color-paper-elevated)',
                     color: typeFilter === type ? 'var(--color-paper-elevated)' : 'var(--color-fg-muted)',
                     border: typeFilter === type ? 'none' : '1px solid var(--color-border)',
-                  }}
-                  onMouseOver={(e) => {
-                    if (typeFilter !== type) {
-                      e.currentTarget.style.borderColor = 'var(--color-primary-600)';
-                    }
-                  }}
-                  onMouseOut={(e) => {
-                    if (typeFilter !== type) {
-                      e.currentTarget.style.borderColor = 'var(--color-border)';
-                    }
                   }}
                 >
                   {ORG_TYPE_LABELS[type] ?? type}
@@ -186,14 +174,8 @@ export default async function DirectoryPage({
                           href={contact.website}
                           target="_blank"
                           rel="noopener noreferrer nofollow"
-                          className="break-all transition-colors"
+                          className="break-all transition-colors hover:underline"
                           style={{ color: 'var(--color-primary-600)' }}
-                          onMouseOver={(e) => {
-                            e.currentTarget.style.textDecoration = 'underline';
-                          }}
-                          onMouseOut={(e) => {
-                            e.currentTarget.style.textDecoration = 'none';
-                          }}
                         >
                           {contact.website.replace(/^https?:\/\//, "")}
                         </a>
@@ -210,14 +192,8 @@ export default async function DirectoryPage({
                       <dd>
                         <a
                           href={`tel:${contact.phone}`}
-                          className="transition-colors"
+                          className="transition-colors hover-text-primary"
                           style={{ color: 'var(--color-fg)' }}
-                          onMouseOver={(e) => {
-                            e.currentTarget.style.color = 'var(--color-primary-600)';
-                          }}
-                          onMouseOut={(e) => {
-                            e.currentTarget.style.color = 'var(--color-fg)';
-                          }}
                         >
                           {contact.phone}
                         </a>
@@ -234,14 +210,8 @@ export default async function DirectoryPage({
                       <dd className="min-w-0">
                         <a
                           href={`mailto:${contact.email}`}
-                          className="break-all transition-colors"
+                          className="break-all transition-colors hover-text-primary"
                           style={{ color: 'var(--color-fg)' }}
-                          onMouseOver={(e) => {
-                            e.currentTarget.style.color = 'var(--color-primary-600)';
-                          }}
-                          onMouseOut={(e) => {
-                            e.currentTarget.style.color = 'var(--color-fg)';
-                          }}
                         >
                           {contact.email}
                         </a>

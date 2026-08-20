@@ -60,57 +60,39 @@ export default async function AdminDashboardPage() {
         <nav aria-label="Admin sections" className="flex flex-wrap gap-2.5 text-sm">
           <Link
             href="/moderation"
-            className="font-medium transition-all"
+            className="font-medium transition-all hover-bg-muted"
             style={{
               padding: '8px 16px',
               borderRadius: 'var(--radius-sm)',
               border: '1px solid var(--color-border)',
               backgroundColor: 'var(--color-paper-elevated)',
               color: 'var(--color-fg)',
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-paper-muted)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-paper-elevated)';
             }}
           >
             Moderation
           </Link>
           <Link
             href="/admin/users"
-            className="font-medium transition-all"
+            className="font-medium transition-all hover-bg-muted"
             style={{
               padding: '8px 16px',
               borderRadius: 'var(--radius-sm)',
               border: '1px solid var(--color-border)',
               backgroundColor: 'var(--color-paper-elevated)',
               color: 'var(--color-fg)',
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-paper-muted)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-paper-elevated)';
             }}
           >
             Users
           </Link>
           <Link
             href="/admin/sources"
-            className="font-medium transition-all"
+            className="font-medium transition-all hover-bg-muted"
             style={{
               padding: '8px 16px',
               borderRadius: 'var(--radius-sm)',
               border: '1px solid var(--color-border)',
               backgroundColor: 'var(--color-paper-elevated)',
               color: 'var(--color-fg)',
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-paper-muted)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-paper-elevated)';
             }}
           >
             Sources
@@ -142,18 +124,12 @@ export default async function AdminDashboardPage() {
             <Link
               key={metric.label}
               href={metric.href}
-              className="transition-all"
+              className="transition-all hover-border-primary"
               style={{
                 borderRadius: 'var(--radius-md)',
                 border: '1px solid var(--color-border)',
                 backgroundColor: 'var(--color-paper-elevated)',
                 padding: '16px',
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.borderColor = 'var(--color-primary-600)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.borderColor = 'var(--color-border)';
               }}
             >
               {body}

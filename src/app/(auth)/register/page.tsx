@@ -26,14 +26,8 @@ export default async function RegisterPage() {
         Already have an account?{" "}
         <Link 
           href="/login" 
-          className="font-medium transition-colors"
+          className="font-medium transition-colors hover:underline"
           style={{ color: 'var(--color-primary-600)' }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.textDecoration = 'underline';
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.textDecoration = 'none';
-          }}
         >
           Sign in
         </Link>

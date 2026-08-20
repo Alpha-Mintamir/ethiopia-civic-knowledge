@@ -53,14 +53,8 @@ function SectionHeading({
       {href ? (
         <Link
           href={href}
-          className="flex shrink-0 items-center gap-1 text-sm font-medium transition-colors"
+          className="flex shrink-0 items-center gap-1 text-sm font-medium transition-colors hover-text-primary-dark"
           style={{ color: 'var(--color-primary-600)' }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.color = 'var(--color-primary-700)';
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.color = 'var(--color-primary-600)';
-          }}
         >
           {linkLabel ?? "View all"} <ArrowRight aria-hidden="true" className="size-3.5" />
         </Link>
@@ -115,23 +109,13 @@ export default async function HomePage() {
               <li key={example}>
                 <Link
                   href={`/search?q=${encodeURIComponent(example)}`}
-                  className="inline-block text-xs transition-colors"
+                  className="inline-block text-xs transition-all hover:border-primary-600 hover:bg-primary-50 hover:text-primary-700"
                   style={{
                     padding: '6px 14px',
                     borderRadius: 'var(--radius-pill)',
                     border: '1px solid var(--color-border)',
                     backgroundColor: 'var(--color-paper)',
                     color: 'var(--color-fg-muted)',
-                  }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.borderColor = 'var(--color-primary-600)';
-                    e.currentTarget.style.backgroundColor = 'var(--color-primary-50)';
-                    e.currentTarget.style.color = 'var(--color-primary-700)';
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.borderColor = 'var(--color-border)';
-                    e.currentTarget.style.backgroundColor = 'var(--color-paper)';
-                    e.currentTarget.style.color = 'var(--color-fg-muted)';
                   }}
                 >
                   {example}
@@ -151,20 +135,12 @@ export default async function HomePage() {
               <Link
                 key={process.id}
                 href={`/processes/${process.slug}`}
-                className="group relative overflow-hidden transition-all"
+                className="group relative overflow-hidden transition-all hover-border-primary hover:-translate-y-0.5"
                 style={{
                   borderRadius: 'var(--radius-md)',
                   border: '1px solid var(--color-border)',
                   backgroundColor: 'var(--color-paper-elevated)',
                   padding: '18px',
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--color-primary-600)';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--color-border)';
-                  e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
                 <div 
@@ -212,14 +188,8 @@ export default async function HomePage() {
                 >
                   <Link
                     href={`/documents/${doc.slug}`}
-                    className="flex items-center gap-3 px-4 py-3.5 transition-colors"
+                    className="flex items-center gap-3 px-4 py-3.5 transition-colors hover-bg-muted"
                     style={{ color: 'var(--color-fg)' }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.backgroundColor = 'var(--color-paper-muted)';
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                    }}
                   >
                     <FileText 
                       aria-hidden="true" 
@@ -255,14 +225,8 @@ export default async function HomePage() {
                 >
                   <Link
                     href={`/offices/${office.slug}`}
-                    className="flex items-center gap-3 px-4 py-3.5 transition-colors"
+                    className="flex items-center gap-3 px-4 py-3.5 transition-colors hover-bg-muted"
                     style={{ color: 'var(--color-fg)' }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.backgroundColor = 'var(--color-paper-muted)';
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                    }}
                   >
                     <Building2 
                       aria-hidden="true" 
@@ -289,18 +253,12 @@ export default async function HomePage() {
                 <li key={page.id}>
                   <Link
                     href={`/pages/${page.slug}`}
-                    className="block text-sm transition-all"
+                    className="block text-sm transition-all hover-border-primary"
                     style={{
                       borderRadius: 'var(--radius-sm)',
                       border: '1px solid var(--color-border)',
                       backgroundColor: 'var(--color-paper-elevated)',
                       padding: '12px 14px',
-                    }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.borderColor = 'var(--color-primary-600)';
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.borderColor = 'var(--color-border)';
                     }}
                   >
                     <span className="font-medium" style={{ color: 'var(--color-fg)' }}>
@@ -322,18 +280,12 @@ export default async function HomePage() {
                 <li key={page.id}>
                   <Link
                     href={`/pages/${page.slug}`}
-                    className="block text-sm transition-all"
+                    className="block text-sm transition-all hover-border-primary"
                     style={{
                       borderRadius: 'var(--radius-sm)',
                       border: '1px solid var(--color-border)',
                       backgroundColor: 'var(--color-paper-elevated)',
                       padding: '12px 14px',
-                    }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.borderColor = 'var(--color-primary-600)';
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.borderColor = 'var(--color-border)';
                     }}
                   >
                     <span className="flex items-center justify-between gap-2">
@@ -404,21 +356,13 @@ export default async function HomePage() {
                 <li key={category.id}>
                   <Link
                     href={`/categories/${category.slug}`}
-                    className="inline-flex items-center gap-1.5 text-sm transition-all"
+                    className="inline-flex items-center gap-1.5 text-sm transition-all hover-border-primary hover-text-primary-dark"
                     style={{
                       padding: '8px 14px',
                       borderRadius: 'var(--radius-sm)',
                       border: '1px solid var(--color-border)',
                       backgroundColor: 'var(--color-paper-elevated)',
                       color: 'var(--color-fg)',
-                    }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.borderColor = 'var(--color-primary-600)';
-                      e.currentTarget.style.color = 'var(--color-primary-700)';
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.borderColor = 'var(--color-border)';
-                      e.currentTarget.style.color = 'var(--color-fg)';
                     }}
                   >
                     <FolderOpen 
@@ -440,21 +384,13 @@ export default async function HomePage() {
                 <li key={location.id}>
                   <Link
                     href={`/locations/${location.slug}`}
-                    className="inline-flex items-center gap-1.5 text-sm transition-all"
+                    className="inline-flex items-center gap-1.5 text-sm transition-all hover-border-primary hover-text-primary-dark"
                     style={{
                       padding: '8px 14px',
                       borderRadius: 'var(--radius-sm)',
                       border: '1px solid var(--color-border)',
                       backgroundColor: 'var(--color-paper-elevated)',
                       color: 'var(--color-fg)',
-                    }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.borderColor = 'var(--color-primary-600)';
-                      e.currentTarget.style.color = 'var(--color-primary-700)';
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.borderColor = 'var(--color-border)';
-                      e.currentTarget.style.color = 'var(--color-fg)';
                     }}
                   >
                     <MapPin 

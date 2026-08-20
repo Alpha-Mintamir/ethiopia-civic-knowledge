@@ -44,19 +44,11 @@ export async function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm transition-colors"
+              className="text-sm transition-colors hover-bg-elevated hover-text-fg"
               style={{
                 padding: '6px 12px',
                 borderRadius: 'var(--radius-sm)',
                 color: 'var(--color-fg-muted)',
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--color-paper-elevated)';
-                e.currentTarget.style.color = 'var(--color-fg)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.color = 'var(--color-fg-muted)';
               }}
             >
               {item.label}
@@ -67,35 +59,23 @@ export async function Header() {
         <div className="ml-auto flex items-center gap-2.5">
           <Link
             href="/search"
-            className="hidden text-sm sm:block"
+            className="hidden text-sm hover-bg-elevated sm:block"
             style={{
               padding: '6px 14px',
               borderRadius: 'var(--radius-sm)',
               color: 'var(--color-fg-muted)',
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-paper-elevated)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
             }}
           >
             Search
           </Link>
           <Link
             href="/contribute"
-            className="hidden text-sm font-medium sm:block"
+            className="hidden text-sm font-medium hover-bg-primary-700 sm:block"
             style={{
               padding: '8px 18px',
               borderRadius: 'var(--radius-pill)',
               backgroundColor: 'var(--color-primary-600)',
               color: 'var(--color-paper-elevated)',
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-primary-700)';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.backgroundColor = 'var(--color-primary-600)';
             }}
           >
             Contribute
@@ -144,28 +124,16 @@ export async function Header() {
                 </div>
                 <Link 
                   href="/account" 
-                  className="block px-3 py-2 text-sm"
+                  className="block px-3 py-2 text-sm hover-bg-muted"
                   style={{ color: 'var(--color-fg-muted)' }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.backgroundColor = 'var(--color-paper-muted)';
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                  }}
                 >
                   My contributions
                 </Link>
                 {showModeration ? (
                   <Link
                     href="/moderation"
-                    className="block px-3 py-2 text-sm"
+                    className="block px-3 py-2 text-sm hover-bg-muted"
                     style={{ color: 'var(--color-fg-muted)' }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.backgroundColor = 'var(--color-paper-muted)';
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                    }}
                   >
                     Moderation queue
                   </Link>
@@ -173,14 +141,8 @@ export async function Header() {
                 {showAdmin ? (
                   <Link 
                     href="/admin" 
-                    className="block px-3 py-2 text-sm"
+                    className="block px-3 py-2 text-sm hover-bg-muted"
                     style={{ color: 'var(--color-fg-muted)' }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.backgroundColor = 'var(--color-paper-muted)';
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                    }}
                   >
                     Admin dashboard
                   </Link>
@@ -188,14 +150,8 @@ export async function Header() {
                 <form action={logoutAction}>
                   <button
                     type="submit"
-                    className="block w-full px-3 py-2 text-left text-sm"
+                    className="block w-full px-3 py-2 text-left text-sm hover-bg-muted"
                     style={{ color: 'var(--color-fg-muted)' }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.backgroundColor = 'var(--color-paper-muted)';
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                    }}
                   >
                     Sign out
                   </button>
@@ -205,18 +161,12 @@ export async function Header() {
           ) : (
             <Link
               href="/login"
-              className="text-sm font-medium"
+              className="text-sm font-medium hover-bg-elevated"
               style={{
                 padding: '7px 16px',
                 borderRadius: 'var(--radius-pill)',
                 border: '1px solid var(--color-border-strong)',
                 color: 'var(--color-fg)',
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.backgroundColor = 'var(--color-paper-elevated)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.backgroundColor = 'transparent';
               }}
             >
               Sign in

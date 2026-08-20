@@ -100,3 +100,32 @@ body {
   background-color: var(--color-primary-50);
   color: var(--color-primary-900);
 }
+
+/* Utility classes for hover states using CSS variables */
+.hover-bg-elevated:hover {
+  background-color: var(--color-paper-elevated);
+}
+
+.hover-bg-muted:hover {
+  background-color: var(--color-paper-muted);
+}
+
+.hover-text-primary:hover {
+  color: var(--color-primary-600);
+}
+
+.hover-text-primary-dark:hover {
+  color: var(--color-primary-700);
+}
+
+.hover-text-fg:hover {
+  color: var(--color-fg);
+}
+
+.hover-border-primary:hover {
+  border-color: var(--color-primary-600);
+}
+
+.hover-bg-primary-700:hover {
+  background-color: var(--color-primary-700);
+}
