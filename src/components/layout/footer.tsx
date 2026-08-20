@@ -17,6 +17,7 @@ export function Footer() {
           <ul className="mt-2 space-y-1.5 text-sm text-stone-600">
             <li><Link className="hover:text-primary-700 hover:underline" href="/processes">Processes</Link></li>
             <li><Link className="hover:text-primary-700 hover:underline" href="/documents">Documents &amp; templates</Link></li>
+            <li><Link className="hover:text-primary-700 hover:underline" href="/directory">Government directory</Link></li>
             <li><Link className="hover:text-primary-700 hover:underline" href="/offices">Government offices</Link></li>
             <li><Link className="hover:text-primary-700 hover:underline" href="/pages">Knowledge guides</Link></li>
             <li><Link className="hover:text-primary-700 hover:underline" href="/locations">Browse by location</Link></li>

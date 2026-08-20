@@ -9,3 +9,4 @@ export * from "./documents";
 export * from "./processes";
 export * from "./community";
 export * from "./search";
+export * from "./directory";

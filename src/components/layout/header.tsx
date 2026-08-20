@@ -8,6 +8,7 @@ import { MobileNav } from "./mobile-nav";
 const NAV_ITEMS = [
   { href: "/processes", label: "Processes" },
   { href: "/documents", label: "Documents" },
+  { href: "/directory", label: "Directory" },
   { href: "/offices", label: "Offices" },
   { href: "/pages", label: "Guides" },
   { href: "/locations", label: "Locations" },

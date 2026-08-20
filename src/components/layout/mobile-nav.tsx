@@ -3,7 +3,7 @@
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export function MobileNav({
   items,
@@ -14,9 +14,13 @@ export function MobileNav({
 }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const prevPathname = useRef(pathname);
 
   useEffect(() => {
-    setOpen(false);
+    if (pathname !== prevPathname.current) {
+      setOpen(false);
+      prevPathname.current = pathname;
+    }
   }, [pathname]);
 
   return (

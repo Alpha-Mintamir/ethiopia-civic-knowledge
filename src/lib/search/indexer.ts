@@ -2,6 +2,7 @@ import "server-only";
 import { and, eq, inArray } from "drizzle-orm";
 import { db } from "@/lib/db";
 import {
+  directoryContacts,
   documents,
   entityTags,
   governmentOffices,
@@ -227,20 +228,42 @@ export async function indexLocation(locationId: string): Promise<void> {
   });
 }
 
+export async function indexDirectoryContact(contactId: string): Promise<void> {
+  const contact = await db.query.directoryContacts.findFirst({
+    where: eq(directoryContacts.id, contactId),
+  });
+  if (!contact) {
+    await removeFromIndex("organization", contactId);
+    return;
+  }
+  await upsertSearchDocs({
+    entityType: "organization",
+    entityId: contact.id,
+    slug: contact.slug,
+    url: `/directory#${contact.slug}`,
+    title: contact.name,
+    summary: contact.description ?? null,
+    extraKeywords: [contact.orgType, contact.layer === "official" ? "official contact" : "community contact"],
+    verificationStatus: contact.layer === "official" ? "official" : "community_reported",
+  });
+}
+
 /** Reindex a batch of entities; used by seed and admin maintenance. */
 export async function reindexAll(): Promise<void> {
-  const [pageRows, processRows, officeRows, documentRows, locationRows] = await Promise.all([
+  const [pageRows, processRows, officeRows, documentRows, locationRows, contactRows] = await Promise.all([
     db.select({ id: knowledgePages.id }).from(knowledgePages),
     db.select({ id: processes.id }).from(processes),
     db.select({ id: governmentOffices.id }).from(governmentOffices),
     db.select({ id: documents.id }).from(documents),
     db.select({ id: locations.id }).from(locations),
+    db.select({ id: directoryContacts.id }).from(directoryContacts),
   ]);
   for (const row of pageRows) await indexKnowledgePage(row.id);
   for (const row of processRows) await indexProcess(row.id);
   for (const row of officeRows) await indexOffice(row.id);
   for (const row of documentRows) await indexDocument(row.id);
   for (const row of locationRows) await indexLocation(row.id);
+  for (const row of contactRows) await indexDirectoryContact(row.id);
 }
 
 export async function removeManyFromIndex(entityType: EntityType, ids: string[]): Promise<void> {

@@ -2,7 +2,9 @@ import { z } from "zod";
 
 /**
  * Validated server environment. Import `env` instead of reading
- * process.env directly so misconfiguration fails fast at boot.
+ * process.env directly so misconfiguration fails fast at runtime.
+ * 
+ * Lazy validation allows `next build` to succeed without .env.local.
  */
 const envSchema = z.object({
   DATABASE_URL: z.string().min(1, "DATABASE_URL is required"),
@@ -12,10 +14,23 @@ const envSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]).default("development"),
 });
 
-export const env = envSchema.parse({
-  DATABASE_URL: process.env.DATABASE_URL,
-  SESSION_SECRET: process.env.SESSION_SECRET,
-  STORAGE_DIR: process.env.STORAGE_DIR,
-  NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
-  NODE_ENV: process.env.NODE_ENV,
+let _env: z.infer<typeof envSchema> | null = null;
+
+function getEnv(): z.infer<typeof envSchema> {
+  if (!_env) {
+    _env = envSchema.parse({
+      DATABASE_URL: process.env.DATABASE_URL,
+      SESSION_SECRET: process.env.SESSION_SECRET,
+      STORAGE_DIR: process.env.STORAGE_DIR,
+      NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+      NODE_ENV: process.env.NODE_ENV,
+    });
+  }
+  return _env;
+}
+
+export const env = new Proxy({} as z.infer<typeof envSchema>, {
+  get(_target, prop: string) {
+    return getEnv()[prop as keyof z.infer<typeof envSchema>];
+  },
 });

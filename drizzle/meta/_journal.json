@@ -15,6 +15,13 @@
       "when": 1787213431668,
       "tag": "0001_search-fts",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1787226675205,
+      "tag": "0002_volatile_rawhide_kid",
+      "breakpoints": true
     }
   ]
 }
